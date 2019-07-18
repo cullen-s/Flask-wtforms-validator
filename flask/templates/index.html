@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<title>Lab06</title>
+</head>
+<body>
+     <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <h1 style="text-align: center;">Password Validator</h1>
+	<div class="container">
+	<form method="post">
+		{{form.hidden_tag()}}
+
+	<p>
+		{{form.username.label}} {{form.username}}
+		<br>
+		{% for error in form.username.errors %}
+		<span style="color:red;">[{{ error }}]</span>
+		{% endfor %}
+	</p>
+	<p>
+		{{form.password.label}} {{form.password}}
+		<br>
+		{% for error in form.password.errors %}
+		<span style="color:red;">[{{ error }}]</span>
+		{% endfor %}
+	</p>
+	<p>
+		{{form.confirm.label}} {{form.confirm}}
+		<br>
+		{% for error in form.confirm.errors %}
+		<span style="color:red;">[{{ error }}]</span>
+		{% endfor %}
+	</p>
+		{{form.submit()}}
+	</form>
+</div>
+	<div class="container" style="text-align: center;">
+	<h6>A valid password contains: </h6>
+	<ul>
+		<li>At least one upper-case letter</li>
+		<li>At least one lower-case letter</li>
+		<li>At least 8 characters in length</li>
+		<li>Must end with a number</li>
+	</ul>
+   </div>
+</body>
+</html>
